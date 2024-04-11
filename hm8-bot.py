@@ -1,3 +1,4 @@
+import pickle
 from hm7task1 import AddressBook, Record
 
 def input_error(func):
@@ -33,7 +34,6 @@ def check_existing_contact(func):
 
 @input_error
 def add_contact(args, book: AddressBook):
-    print(len(args))
     if len(args) != 2:
         raise ValueError("Give me format command name and phone please.")
     
@@ -160,8 +160,23 @@ def help():
             help_text += f"\n{command}: {description}\n"
     return help_text
 
+# Function to save data
+def save_data(book, filename="addressbook.pkl"):
+    with open(filename, "wb") as file:
+        pickle.dump(book, file)
+
+# Function to load data
+def load_data(filename="addressbook.pkl"):
+    try:
+        with open(filename, "rb") as file:
+            data = pickle.load(file)
+            return data if isinstance(data, AddressBook) else AddressBook()
+    except (FileNotFoundError, EOFError):
+        return AddressBook() 
+
+
 def main():
-    book = AddressBook() 
+    book = load_data()
 
     print("Welcome to the assistant bot!")
     while True:
@@ -170,6 +185,7 @@ def main():
 
         if command in ["close", "exit"]:
             print("Good bye!")
+            save_data(book)
             break
         elif command == "hello":
             print(hello()) 
