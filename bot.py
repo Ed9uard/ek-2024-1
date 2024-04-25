@@ -1,5 +1,5 @@
 import pickle
-from hm7task1 import AddressBook, Record
+from bookAdr import AddressBook, Record
 
 def input_error(func):
     def inner(*args, **kwargs):
