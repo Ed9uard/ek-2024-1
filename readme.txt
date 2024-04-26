@@ -1,4 +1,19 @@
-Чітко зазначаю  pipenv, використано для створення віртуального середовища.  
-Віртуальне середовище успішно створено за допомогою обраного інструменту. 
-У конфігураційному файлі віртуального середовища, Pipfile чітко зазначена версія Python, яку слід використовувати для проекту.
-інші  залежності проекту вказані та зафіксовані у файлі залежностей Pipfile для pipenv
+pipenv, version 2023.12.1
+pipenv --rm 
+pipenv sync --dev 
+
+docker pull testich/contactbook 
+
+or 
+
+docker build . -t testich/contactbook
+
+docker run -it testich/contactbook
+
+docker run -it testich/contactbook /bin/bash 
+    ls
+    python bot.py    #to run
+
+
+
+ others support command pipenv run pip freeze > requirements.txt
