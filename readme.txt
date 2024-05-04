@@ -1,19 +1,13 @@
 pipenv, version 2023.12.1
 pipenv --rm 
-pipenv sync --dev 
+pipenv sync --dev  
 
-docker pull testich/contactbook 
+.venv\Scripts\activate
 
-or 
+py createdb.py # створення testdb.db
 
-docker build . -t testich/contactbook
+py seed.py  # заповнення testdb.db
 
-docker run -it testich/contactbook
+py run_sql_query.py виконання SQL
 
-docker run -it testich/contactbook /bin/bash 
-    ls
-    python bot.py    #to run
-
-
-
- others support command pipenv run pip freeze > requirements.txt
+py delete_user.py вилучення user=1
