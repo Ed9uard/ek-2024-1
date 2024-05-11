@@ -4,10 +4,8 @@ pipenv sync --dev
 
 .venv\Scripts\activate
 
-py createdb.py # створення testdb.db
+py main.py -  hm3 part 1
+py scryping.py hm3 part 2
 
-py seed.py  # заповнення testdb.db
+py load_in_mongo.py hm3 part 2.1
 
-py run_sql_query.py виконання SQL
-
-py delete_user.py вилучення user=1
